@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VoteYourChoice | 온라인투표서비스</title>
+    <link rel='stylesheet' href='css/woocommerce-layout.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)' />
+    <link rel='stylesheet' href='css/woocommerce.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/style.css' type='text/css' media='all' />
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all' />
+    <link rel='stylesheet' href='css/easy-responsive-shortcodes.css' type='text/css' media='all' />
+    <style>
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        /* 스타일 추가 */
+.form-group input[type="password"][name="userpw"],
+.form-group input[type="password"][name="confirm-password"] {
+    font-family: 'Your Preferred Font';
+    font-size: 16px;
+    color: #333;
+}
+
+        .submit-button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+    <div id="page">
+        <header id="masthead" class="site-header"> 
+            <div class="site-branding">
+                <h1 class="site-title"><a href="index.html" rel="home">Vote Your Choice</a></h1>
+                <h2 class="site-description">온라인 투표 서비스</h2>
+            </div>
+            <nav id="site-navigation" class="main-navigation">
+            <button class="menu-toggle">Menu</button>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu-menu-1-container">
+                <ul id="menu-menu-1" class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">register</a></li>
+                    <li><a href="use.html">How to use</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+            </nav>
+            </header>
+    <div class="container">
+        <div class="signup-form">
+            <h2 style="font-family: 'Your Preferred Font'; font-size: 24px; color: #333; text-align: center;">회원가입</h2>
+            <form action="register.php" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="userid">아이디</label>
+                    <input type="text" id="userid" name="userid" required>
+                    <button type="button" id="check-id-button">중복확인</button>
+                </div>
+                <div class="form-group">
+                    <label for="userpw">비밀번호</label>
+                    <input type="password" id="userpw" name="userpw" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">비밀번호 확인</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">사용자 이름</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <!-- 주민등록번호 입력 창 -->
+                <div class="form-group">
+                    <label for="jumin">주민등록번호</label>
+                    <input type="password" id="jumin" name="jumin" minlength="13" maxlength="13" required>
+                </div>
+         
+                
+                <button class="submit-button" type="submit">가입하기</buttons>
+            </form>
+        </div>
+    </div>
+    <script>
+        var isIdValid = false; // 아이디 중복 여부를 나타내는 변수
+
+        document.getElementById('check-id-button').addEventListener('click', function() {
+            var userid = document.getElementById('userid').value;
+
+    	    if (userid.trim() === "") {
+        	alert("아이디를 입력해주세요.");
+        	return; // 입력이 없으면 중복 확인을 수행하지 않고 함수 종료
+    	}
+
+	    if (userid.length < 8) {
+        	alert("아이디는 8자리 이상 입력해주세요.");
+        	return; // 아이디가 8자리 미만이면 중복 확인을 수행하지 않고 함수 종료
+    	}
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'check_id.php', true); // 아이디 중복 확인을 위한 PHP 파일 경로로 수정
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = xhr.responseText;
+                    if (response === "available") {
+                        isIdValid = true;
+                        alert("사용 가능한 아이디입니다.");
+                    } else {
+                        isIdValid = false;
+                        alert("이미 사용 중인 아이디입니다.");
+                    }
+                }
+            };
+            xhr.send('userid=' + encodeURIComponent(userid));
+        });
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            if (!isIdValid) {
+                alert("아이디 중복을 확인해주세요.");
+                event.preventDefault(); // 폼 제출을 막는다.
+            } else {
+                var password = document.getElementById('userpw').value;
+                var confirmPassword = document.getElementById('confirm-password').value;
+		var hasNumber = /\d/;
+		var hasSpecial = /[!@#$%^&*]/;
+		var hasEnglish = /[a-zA-Z]/;
+
+        	if (password.length < 5 || password.length > 12) {
+            		alert("비밀번호는 5자리에서 12자리까지 입력해주세요.");
+            		event.preventDefault(); // 폼 제출을 막는다.
+            		return;
+        	}
+    		// 영문자, 숫자, 특수문자를 포함하는지 검사
+    		if (!hasEnglish.test(password) || !hasNumber.test(password) || !hasSpecial.test(password)) {
+        		alert("비밀번호는 영문자, 숫자, 특수문자(!@#$%^&*)를 포함해야 합니다.");
+        		event.preventDefault(); // 폼 제출을 막는다.
+        		return; // 추가: 다른 검사를 진행하지 않도록 함수 실행을 여기서 종료
+    		 }
+		
+                if (password !== confirmPassword) {
+                    alert("비밀번호가 일치하지 않습니다.");
+                    event.preventDefault(); // 폼 제출을 막는다.
+                }
+            }
+        });
+    </script>
+            <footer id="colophon" class="site-footer">
+                <div class="container">
+                    <div class="site-info">
+                        <h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Vote Your choice</h1>
+                        Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">yizo</a>
+                    </div>
+                </div>
+            </footer>
+            <script src='js/jquery.js'></script>
+            <script src='js/plugins.js'></script>
+            <script src='js/scripts.js'></script>
+            <script src='js/masonry.pkgd.min.js'></script>
+        </div>
+    </div>
+</body>
+
+</html>
+

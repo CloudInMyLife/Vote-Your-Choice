@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoteYourChoice | 온라인투표서비스</title>
+<link rel='stylesheet' href='css/woocommerce-layout.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/woocommerce-smallscreen.css' type='text/css' media='only screen and (max-width: 768px)'/>
+<link rel='stylesheet' href='css/woocommerce.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/font-awesome.min.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/style.css' type='text/css' media='all'/>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
+<link rel='stylesheet' href='css/easy-responsive-shortcodes.css' type='text/css' media='all'/>
+
+<style>
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 0 auto; /* 가운데로 배치 */
+    margin-bottom: 15px; /* 여백 추가 */
+}
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .submit-button {
+        width: 100%;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .submit-button:hover {
+        background-color: #0056b3;
+    }
+
+    .signup-form h2 {
+    font-family: 'Your Preferred Font';
+    font-size: 24px;
+    font-weight: bold; /* Add this line */
+    color: #333;
+    text-align: center;
+    }
+</style>
+
+</head>
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="page">
+    <header id="masthead" class="site-header">
+        <div class="site-branding">
+            <h1 class="site-title"><a href="index.html" rel="home">Vote Your Choice</a></h1>
+            <h2 class="site-description">온라인 투표 서비스 </h2>
+        </div>
+        <nav id="site-navigation" class="main-navigation">
+            <button class="menu-toggle">Menu</button>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu-menu-1-container">
+                <ul id="menu-menu-1" class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="register.html">register</a></li>
+                    <li><a href="use.html">How to use</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="signup-form">
+            <h2 style="font-family: 'Your Preferred Font'; font-size: 24px; color: #333; text-align: center;">로그인</h2>
+            <form action="login.php" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="username"><strong style="color: #000000;">ID:</strong></label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="birthday"><strong style="color: #000000;">PassWord:</strong></label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+	            <button type="submit" class="submit-button">LOGIN</button>
+		</form>
+        </div>
+    </div>
+
+    <footer id="colophon" class="site-footer">
+        <div class="container">
+            <div class="site-info">
+                <h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">Vote Your choice</h1>
+                Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">yizo</a>
+    
+            </div>
+        </div>	
+    </footer>
+    
+    <script src='js/jquery.js'></script>
+    <script src='js/plugins.js'></script>
+    <script src='js/scripts.js'></script>
+    <script src='js/masonry.pkgd.min.js'></script>
+    </body>
+    </html>
